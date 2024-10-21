@@ -41,6 +41,11 @@ require("dotenv").config();
 const app = (0, express_1.default)();
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express_1.default.static("public"));
+app.use((req, res, next) => {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    next();
+});
 app.use(postFormData_1.postFormData);
 app.use(getFormData_1.GetFormData);
 mongoose_1.default.connect(process.env.MONGODB_URI).then(() => {

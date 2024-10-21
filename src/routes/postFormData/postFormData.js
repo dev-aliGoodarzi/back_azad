@@ -63,6 +63,6 @@ exports.postFormData.post(`/postFormData`, (req, res) => __awaiter(void 0, void 
             formId: max + 1,
         });
         yield newData.save();
-        res.status(200).json({ message: "done" });
+        res.status(200).json({ message: "done", formId: max + 1 });
     }
 }));

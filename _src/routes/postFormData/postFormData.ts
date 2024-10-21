@@ -82,6 +82,6 @@ postFormData.post(`/postFormData`, async (req, res) => {
 
     await newData.save();
 
-    res.status(200).json({ message: "done" });
+    res.status(200).json({ message: "done", formId: max + 1 });
   }
 });
